@@ -1,6 +1,6 @@
 Introduction
 ============
-mirrortools is a set of stored procedures that allows the easy manipulation and management of a collection of mirrored databases on Microsoft SQL Server 2005+. For example, if we wanted to setup a new mirrored database, we’d just need to run:
+mirrortools is a set of stored procedures that allows the easy manipulation and management of a collection of mirrored databases on Microsoft SQL Server 2005+. For example, if we wanted to setup a new mirrored database, we’d just need to run::
 
   mirrotools copy, database_name
   mirrortools mirror, database_name
@@ -9,10 +9,15 @@ or if we wanted to failover all the databases on the server, we could run::
 
   mirrortools failover
 
-Commands
-========
+or if we wanted to synchronize a particular login to the mirror server, we could run::
 
-Commands available through *mirrortools* procedure:
+  mirrortools synclogin "domain\username"
+
+
+mirrotools
+==========
+
+`mirrortools` is the primary procedure in the set of tools and supports the following commands:
 
     * FAILOVER: failover group of databases to mirroring partner
     * FORCE: performs forced failover to group of databases
@@ -30,8 +35,6 @@ Commands available through *mirrortools* procedure:
     * PARTNERDROP: Drops particular (single) database on partner server
     * STATUS: Displays current database mirroring status
     * HELP: Shows this help file...
-
-There are also several additional procedures which are called via mirrortools or can be called directly:
 
 execute_job
 -----------
